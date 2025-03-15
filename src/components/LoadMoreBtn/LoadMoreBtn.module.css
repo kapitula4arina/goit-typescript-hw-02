@@ -1,0 +1,12 @@
+.loadMoreBtn {
+  padding: 10px 15px;
+  color: #e7acac;
+  transition: background-color 0.25s;
+  font-size: 18px;
+
+  margin-bottom: 20px;
+}
+
+.loadMoreBtn:hover {
+  background-color: #e07c7c;
+}
