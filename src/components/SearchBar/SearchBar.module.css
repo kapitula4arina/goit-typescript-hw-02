@@ -1,8 +1,16 @@
 .header {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  padding: 40px 20px;
+  justify-content: center;
+  padding: 10px;
+  background-color: rgba(255, 109, 109, 0.2);
+}
+
+.logo {
+  color: rgba(255, 109, 109, 100);
+  font-size: 32px;
+  font-weight: bold;
 }
 
 .searchForm {
@@ -15,7 +23,6 @@
   height: 16px;
   fill: #e7acac;
 
-  animation: magnification 3s infinite 3s;
   transition: fill 0.25s;
 }
 
@@ -51,6 +58,16 @@
 .buttonSearch:hover .searchIcon {
   fill: #e07c7c;
   animation-play-state: paused;
+}
+
+@media (min-width: 768px) {
+  .header {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 30px 20px;
+  }
 }
 
 @keyframes magnification {

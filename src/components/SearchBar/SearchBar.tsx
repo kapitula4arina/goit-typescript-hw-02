@@ -1,14 +1,18 @@
 import css from './SearchBar.module.css';
+import { FormEvent } from 'react';
 import { IoSearchSharp } from 'react-icons/io5';
-
 import showToast from '../Toasts/toastService';
 
-const SearchBar = ({ onSubmit }) => {
-  const handleSubmit = e => {
-    e.preventDefault();
+interface SearchBarProps {
+  onSubmit: (newQuery: string) => void;
+}
 
-    const form = e.target;
-    const query = form.elements.search.value;
+const SearchBar: React.FC<SearchBarProps> = ({ onSubmit }) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const query = (form.elements.namedItem('search') as HTMLInputElement).value;
 
     if (!query.trim()) {
       showToast('info', 'message');
@@ -21,6 +25,12 @@ const SearchBar = ({ onSubmit }) => {
 
   return (
     <header className={css.header}>
+      <h1 className={css.logo}>
+        PicSearcher{' '}
+        <svg width={30} height={30}>
+          <use xlinkHref="/sprite.svg#icon-fav"></use>
+        </svg>
+      </h1>
       <form onSubmit={handleSubmit} className={css.searchForm}>
         <input
           name="search"

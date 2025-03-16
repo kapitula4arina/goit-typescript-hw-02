@@ -1,14 +1,14 @@
 import css from './ImageCard.module.css';
+import { ImageCardProps } from './ImageCard.types';
 
-import { ImHeart } from 'react-icons/im';
-import { ImUser } from 'react-icons/im';
+import { ImHeart, ImUser } from 'react-icons/im';
 
-const ImageCard = ({ dataAttribute, onLoad }) => {
+const ImageCard = ({ dataAttribute, onLoad }: ImageCardProps) => {
   return (
     <div>
       <img
         src={dataAttribute.urls.small}
-        alt={dataAttribute}
+        alt={dataAttribute.user.name}
         className={css.card}
         onLoad={onLoad}
       />

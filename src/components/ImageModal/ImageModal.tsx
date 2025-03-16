@@ -3,15 +3,13 @@ import css from './ImageModal.module.css';
 import { useEffect } from 'react';
 import { IoCloseOutline } from 'react-icons/io5';
 import { ImUser } from 'react-icons/im';
+import { ImageModalProps } from './ImageModal.types';
 
-const ImageModal = ({ onClose, isOpen, data = {} }) => {
+ReactModal.setAppElement('#root'); // ✅ Встановлюємо 1 раз перед рендерингом
+
+const ImageModal = ({ onClose, isOpen, data }: ImageModalProps) => {
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-
+    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
     return () => {
       document.body.style.overflow = 'auto';
     };
@@ -25,7 +23,6 @@ const ImageModal = ({ onClose, isOpen, data = {} }) => {
       shouldCloseOnOverlayClick={true}
       ariaHideApp={false}
       closeTimeoutMS={0}
-      appElement={document.getElementById('root')}
       className={css.modal}
       overlayClassName={css.overlay}
     >
