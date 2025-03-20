@@ -5,6 +5,7 @@
   justify-content: center;
   padding: 10px;
   background-color: rgba(255, 109, 109, 0.2);
+  border: 1px solid rgba(255, 109, 109, 0.3);
 }
 
 .logo {
@@ -65,8 +66,8 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 50px;
-    padding: 30px 20px;
+    gap: 80px;
+    padding: 25px 20px;
   }
 }
 
